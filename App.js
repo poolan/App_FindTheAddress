@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <MapView style={{ flex: 5, marginBottom: 50 }} region={region}>
+      <MapView style={{ flex: 5, marginBottom: 50, width: "100%", height: "100%" }} region={region}>
         <Marker
           coordinate={{
             latitude: region.latitude,
@@ -41,15 +41,18 @@ export default function App() {
       </MapView>
       <TextInput
         style={{
-          fontSize: 18,
+          fontSize: 20,
+          height: 35,
+          borderWidth: 1,
+          width: 200,
+          marginBottom: 25,
         }}
         placeholder="address"
-        onChangeText={(address) => setAddress(address)}
+        onChangeText={(text) => setAddress(text)}
       />
       <Button
         title="SHOW"
         onPress={showAddress}
-        style={{ marginBottom: 100 }}
       />
     </View>
   );
@@ -58,9 +61,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: 200,
-    borderWidth: 1,
-    marginBottom: 10,
     alignItems: "center",
     justifyContent: "center",
   },
